@@ -35,7 +35,7 @@ public class User {
 
     // 생성일자
     @Column(nullable = true)
-    private LocalDateTime createAT;
+    private LocalDateTime createAt;
 
     // 수정일자
     @Column(nullable = true)
