@@ -26,7 +26,6 @@ public abstract class BaseEntity {
     @Column(nullable = false)
     protected LocalDateTime updateAt; //수정일시
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     @Column(nullable = true)
     protected LocalDateTime deleteAt; //삭제일자
 }
