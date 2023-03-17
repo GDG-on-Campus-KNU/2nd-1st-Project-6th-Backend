@@ -16,7 +16,7 @@ import java.util.List;
 @Entity
 public class Post extends BaseEntity{
 
-    // 게시글번호
+    // 게시글 번호
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long postId;
