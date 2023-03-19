@@ -30,5 +30,5 @@ public class MyTeam {
 
     //회원번호
     @ManyToOne(optional = false) @JoinColumn(name = "userId")
-    private Long userId;
+    private User user;
 }
