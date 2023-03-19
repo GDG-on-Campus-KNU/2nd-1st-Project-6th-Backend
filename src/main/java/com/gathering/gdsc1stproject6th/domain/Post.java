@@ -1,6 +1,7 @@
 package com.gathering.gdsc1stproject6th.domain;
 
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
@@ -33,9 +34,10 @@ public class Post extends BaseEntity{
     @Column(nullable = false)
     private Integer userLen;
 
-    //현재모집원
+    //현재모집인원
+    @ColumnDefault("0")
     @Column(nullable = false)
-    private List<User> members;
+    private Integer curUserLen;
 
     //모임시간
     @Column(nullable = true)

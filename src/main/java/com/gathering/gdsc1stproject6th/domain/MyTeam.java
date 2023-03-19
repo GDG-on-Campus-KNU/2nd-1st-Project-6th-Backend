@@ -20,15 +20,16 @@ public class MyTeam {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long myTeamId;
 
-    //게시글 번호
-    @Column(nullable = false)
-    private Long postId;
-
     //가입 상태
     @Enumerated(EnumType.STRING)
     private MyTeamStatus status;
 
+    //게시글 번호
+    @ManyToOne(optional = false) @JoinColumn(name = "postId")
+    private Post post;
+
     //회원번호
     @ManyToOne(optional = false) @JoinColumn(name = "userId")
     private User user;
+
 }
