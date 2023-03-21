@@ -32,7 +32,6 @@ public class PostDto {
     private Integer curUserLen;
 
     //모임시간
-    @Column(nullable = true)
     private String meetTime;
 
     //모임장소
@@ -48,10 +47,10 @@ public class PostDto {
     private Boolean activeYN;
 
     //글쓴이
-    private User user;
+    private UserDto userDto;
 
     //카테고리 번호
-    private Category category;
+    private CategoryDto categoryDto;
 
     private LocalDateTime createAt;
 

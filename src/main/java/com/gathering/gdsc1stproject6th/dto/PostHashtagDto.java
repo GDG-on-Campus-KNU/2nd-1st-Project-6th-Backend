@@ -17,10 +17,10 @@ public class PostHashtagDto {
     private Long PostHashtagId;
 
     //게시글 정보(ID)
-    private Post post;
+    private PostDto postDto;
 
     //해시태그 정보(ID)
-    private Hashtag hashtag;
+    private HashtagDto hashtagDto;
 
     private LocalDateTime createAt;
 
