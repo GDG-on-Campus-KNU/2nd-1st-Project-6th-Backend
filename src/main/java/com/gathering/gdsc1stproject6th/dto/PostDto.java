@@ -3,7 +3,9 @@ package com.gathering.gdsc1stproject6th.dto;
 import com.gathering.gdsc1stproject6th.domain.Category;
 import com.gathering.gdsc1stproject6th.domain.User;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -14,6 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 public class PostDto {
 
+    // 게시글 번호
     private Long postId;
 
     //제목
@@ -25,10 +28,11 @@ public class PostDto {
     //모집인원
     private Integer userLen;
 
-    //현재모집원
-    private List<User> members;
+    //현재모집인원
+    private Integer curUserLen;
 
     //모임시간
+    @Column(nullable = true)
     private String meetTime;
 
     //모임장소

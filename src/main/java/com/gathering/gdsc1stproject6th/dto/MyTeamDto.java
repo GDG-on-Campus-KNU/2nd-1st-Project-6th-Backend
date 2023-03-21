@@ -1,6 +1,7 @@
 package com.gathering.gdsc1stproject6th.dto;
 
 import com.gathering.gdsc1stproject6th.domain.MyTeamStatus;
+import com.gathering.gdsc1stproject6th.domain.User;
 import lombok.*;
 
 @Getter
@@ -20,5 +21,5 @@ public class MyTeamDto {
     private MyTeamStatus status;
 
     //회원번호
-    private Long userId;
+    private User user;
 }
