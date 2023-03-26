@@ -30,4 +30,11 @@ public class Hashtag extends BaseEntity{
     @Column(nullable = false)
     private Integer tagCount;
 
+    public void addTagCount() {
+        this.tagCount = this.tagCount++;
+    }
+
+    public void deleteTagCount() {
+        this.tagCount = this.tagCount--;
+    }
 }

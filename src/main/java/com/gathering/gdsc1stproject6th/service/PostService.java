@@ -18,11 +18,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Service
 public class PostService {
-    private final HashtagService hashtagService;
     private final PostRepository postRepository;
     private final UserRepository userRepository;
-    private final HashtagRepository hashtagRepository;
-
     private final CategoryRepository categoryRepository;
 
     public Long savePost(PostDto postDto) {

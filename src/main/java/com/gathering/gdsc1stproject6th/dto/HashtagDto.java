@@ -1,5 +1,6 @@
 package com.gathering.gdsc1stproject6th.dto;
 
+import com.gathering.gdsc1stproject6th.domain.Hashtag;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -25,4 +26,16 @@ public class HashtagDto {
     private LocalDateTime updateAt;
 
     private LocalDateTime deleteAt;
+
+    public static HashtagDto from(Hashtag entity) {
+        return new HashtagDto(
+                entity.getHashtagId(),
+                entity.getHashtagNm(),
+                entity.getTagCount(),
+                entity.getCreatedAt(),
+                entity.getDeleteAt(),
+                entity.getUpdateAt()
+        );
+    }
+
 }
