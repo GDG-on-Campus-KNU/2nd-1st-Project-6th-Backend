@@ -23,12 +23,12 @@ public class PostHashtag extends BaseEntity{
     private Long PostHashtagId;
 
     //게시글 정보(ID)
-    @ManyToOne(fetch = LAZY)
+    @ManyToOne(fetch = LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "postId")
     private Post post;
 
     //해시태그 정보(ID)
-    @ManyToOne(fetch = LAZY)
+    @ManyToOne(fetch = LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "hashtagId")
     private Hashtag hashtag;
 

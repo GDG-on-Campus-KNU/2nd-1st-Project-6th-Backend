@@ -1,6 +1,7 @@
 package com.gathering.gdsc1stproject6th.dto;
 
 import com.gathering.gdsc1stproject6th.domain.Category;
+import com.gathering.gdsc1stproject6th.domain.Post;
 import com.gathering.gdsc1stproject6th.domain.User;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
@@ -57,4 +58,23 @@ public class PostDto {
     private LocalDateTime updateAt;
 
     private LocalDateTime deleteAt;
+
+    public Post toEntity(User user, Category category) {
+        Post post = Post.builder()
+                .postId(postId)
+                .title(title)
+                .chatLink(chatLink)
+                .userLen(userLen)
+                .curUserLen(curUserLen)
+                .meetTime(meetTime)
+                .meetPlace(meetPlace)
+                .content(content)
+                .fastYN(fastYN)
+                .activeYN(activeYN)
+                .user(user)
+                .category(category)
+                .build();
+
+        return post;
+    }
 }
