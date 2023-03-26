@@ -25,7 +25,7 @@ public class PostHashtagService {
     private final HashtagRepository hashtagRepository;
 
 
-    public void savePostHashtag(PostHashtag postHashtagDto) {
+    public void savePostHashtag() {
 
     }
 }

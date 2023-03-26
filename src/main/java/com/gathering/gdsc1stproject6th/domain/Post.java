@@ -56,7 +56,8 @@ public class Post extends BaseEntity{
     private Boolean fastYN;
 
     //활성화 유무
-    @Column(nullable = true)
+    @ColumnDefault("true")
+    @Column(nullable = false)
     private Boolean activeYN;
 
     //글쓴이

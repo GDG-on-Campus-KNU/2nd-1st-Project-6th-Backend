@@ -22,18 +22,20 @@ public class PostService {
     private final UserRepository userRepository;
     private final CategoryRepository categoryRepository;
 
-    public Long savePost(PostDto postDto) {
+    public PostDto savePost(PostDto postDto) {
         User user = userRepository.getReferenceById(postDto.getUserDto().getUserId());
 
         Category category = categoryRepository.getReferenceById((postDto.getCategoryDto().getCategoryId()));
-
-        postDto.setActiveYN(true);
 
         Post post = postDto.toEntity(user, category);
 
         postRepository.save(post);
 
-        return post.getPostId();
+        postDto.setCreateAt(post.getCreatedAt());
+        postDto.setDeleteAt(post.getDeleteAt());
+        postDto.setUpdateAt(post.getUpdateAt());
+
+        return postDto;
     }
 
 
