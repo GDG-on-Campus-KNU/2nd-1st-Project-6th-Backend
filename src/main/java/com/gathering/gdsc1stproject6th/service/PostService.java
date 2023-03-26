@@ -22,7 +22,7 @@ public class PostService {
     private final UserRepository userRepository;
     private final CategoryRepository categoryRepository;
 
-    public PostDto savePost(PostDto postDto) {
+    public Long savePost(PostDto postDto) {
         User user = userRepository.getReferenceById(postDto.getUserDto().getUserId());
 
         Category category = categoryRepository.getReferenceById((postDto.getCategoryDto().getCategoryId()));
@@ -31,11 +31,7 @@ public class PostService {
 
         postRepository.save(post);
 
-        postDto.setCreateAt(post.getCreatedAt());
-        postDto.setDeleteAt(post.getDeleteAt());
-        postDto.setUpdateAt(post.getUpdateAt());
-
-        return postDto;
+        return post.getPostId();
     }
 
 
