@@ -5,7 +5,6 @@ import com.gathering.gdsc1stproject6th.domain.Post;
 import com.gathering.gdsc1stproject6th.domain.User;
 import com.gathering.gdsc1stproject6th.dto.PostDto;
 import com.gathering.gdsc1stproject6th.repository.CategoryRepository;
-import com.gathering.gdsc1stproject6th.repository.HashtagRepository;
 import com.gathering.gdsc1stproject6th.repository.PostRepository;
 import com.gathering.gdsc1stproject6th.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
