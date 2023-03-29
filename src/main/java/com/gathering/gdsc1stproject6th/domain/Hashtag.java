@@ -31,10 +31,10 @@ public class Hashtag extends BaseEntity{
     private Integer tagCount;
 
     public void addTagCount() {
-        this.tagCount = this.tagCount++;
+        this.tagCount = this.tagCount + 1;
     }
 
     public void deleteTagCount() {
-        this.tagCount = this.tagCount--;
+        this.tagCount = this.tagCount - 1;
     }
 }

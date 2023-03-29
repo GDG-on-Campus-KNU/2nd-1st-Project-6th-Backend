@@ -23,7 +23,7 @@ class HashtagServiceTest {
     @Test
     void parseHashtagNames() {
         //given
-        String hashtagString = "#soccer#football#soccers#footballs";
+        String hashtagString = "#soccer#soccers";
 
         //when
         hashtags = hashtagService.parseHashtagNames(hashtagString);

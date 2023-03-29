@@ -57,11 +57,20 @@ public class HashtagService {
                 hashtagDtos.add(newHashtagDto);
             } else {
                 //tagCount 1증가 update
+                updateHashtagTagCount(hashtag);
             }
         }
 
         return Set.copyOf(hashtagDtos);
     }
 
+    //해시태그 존재하는 경우, tagCount +1 업데이트
+    public void updateHashtagTagCount(String hashtagNm) {
+        Optional<Hashtag> hashtag = hashtagRepository.findByHashtagNm(hashtagNm);
+
+        hashtag.get().addTagCount();
+        System.out.println("hashtag.get().getTagCount() = " + hashtag.get().getTagCount());
+        hashtagRepository.save(hashtag.get());
+    }
 
 }

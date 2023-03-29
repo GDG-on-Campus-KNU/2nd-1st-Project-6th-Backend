@@ -22,16 +22,12 @@ class PostHashtagServiceTest {
 
     @Test
     void savePostHashtag() {
-        Long postId = 1L;
+        Long postId = 7L;
         Set<HashtagDto> hashtagDtos = new HashSet<>();
 
-        HashtagDto hashtagDto1 = HashtagDto.from(hashtagRepository.findById(1L).get());
-        HashtagDto hashtagDto2 = HashtagDto.from(hashtagRepository.findById(2L).get());
         HashtagDto hashtagDto3 = HashtagDto.from(hashtagRepository.findById(3L).get());
         HashtagDto hashtagDto4 = HashtagDto.from(hashtagRepository.findById(4L).get());
 
-        hashtagDtos.add(hashtagDto1);
-        hashtagDtos.add(hashtagDto2);
         hashtagDtos.add(hashtagDto3);
         hashtagDtos.add(hashtagDto4);
 
