@@ -27,6 +27,7 @@ public class PostHashtagService {
     private final HashtagRepository hashtagRepository;
 
 
+    //post hashtag mapping 저장
     public void savePostHashtag(Long postId, Set<HashtagDto> hashtagDtos) {
         for (HashtagDto hashtagDto : hashtagDtos) {
             Optional<Post> post = postRepository.findById(postId);

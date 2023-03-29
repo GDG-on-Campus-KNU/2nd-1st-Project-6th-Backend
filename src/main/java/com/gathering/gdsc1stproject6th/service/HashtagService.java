@@ -22,6 +22,7 @@ public class HashtagService {
 
     private final HashtagRepository hashtagRepository;
 
+    //string으로 들어온 해시태그들 하나씩 나누어서 set으로 반환
     public Set<String> parseHashtagNames(String hashtagString) {
         if (hashtagString == null) return Set.of();
 
@@ -36,6 +37,7 @@ public class HashtagService {
         return Set.copyOf(result);
     }
 
+    //Set<String> 해시태그들 생성 및 저장 후, Set<HashtagDto>으로 반환
     public Set<HashtagDto> saveHashtag(Set<String> hashtags) {
         Set<HashtagDto> hashtagDtos = new HashSet<>();
 

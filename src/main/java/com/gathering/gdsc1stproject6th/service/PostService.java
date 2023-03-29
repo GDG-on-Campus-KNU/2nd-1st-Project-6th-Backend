@@ -21,6 +21,7 @@ public class PostService {
     private final UserRepository userRepository;
     private final CategoryRepository categoryRepository;
 
+    //게시글 저장
     public Long savePost(PostDto postDto) {
         User user = userRepository.getReferenceById(postDto.getUserDto().getUserId());
 
