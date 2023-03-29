@@ -40,6 +40,7 @@ public class HashtagService {
     //Set<String> 해시태그들 생성 및 저장 후, Set<HashtagDto>으로 반환
     public Set<HashtagDto> saveHashtag(Set<String> hashtags) {
         Set<HashtagDto> hashtagDtos = new HashSet<>();
+        HashtagDto newHashtagDto = new HashtagDto();
 
         for (String hashtag : hashtags) {
             Optional<Hashtag> hashtag1 = hashtagRepository.findByHashtagNm(hashtag);
@@ -51,14 +52,14 @@ public class HashtagService {
 
                 hashtagRepository.save(newHashtag);
 
-                HashtagDto newHashtagDto = new HashtagDto();
-                newHashtagDto.from(newHashtag);
-
-                hashtagDtos.add(newHashtagDto);
+                newHashtagDto = HashtagDto.from(newHashtag);
             } else {
                 //tagCount 1증가 update
                 updateHashtagTagCount(hashtag);
+
+                newHashtagDto = HashtagDto.from(hashtag1.get());
             }
+            hashtagDtos.add(newHashtagDto);
         }
 
         return Set.copyOf(hashtagDtos);
