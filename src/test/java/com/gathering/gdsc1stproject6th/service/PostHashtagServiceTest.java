@@ -90,13 +90,13 @@ class PostHashtagServiceTest {
                 .build();
 
         PostDto postDto = PostDto.builder()
-                .title("농구원 구함")
-                .chatLink("https://www.acmicpc.net")
-                .userLen(5)
+                .title("농구할 사람!!")
+                .chatLink("https://www.acmicpc.net/11")
+                .userLen(3)
                 .curUserLen(1)
-                .meetTime("6시")
-                .meetPlace("북구청")
-                .content("가자")
+                .meetTime("8시")
+                .meetPlace("남구")
+                .content("고고")
                 .fastYN(true)
                 .activeYN(true)
                 .userDto(userDto)
@@ -107,7 +107,7 @@ class PostHashtagServiceTest {
 
 
         //해시태그
-        String hashtagString = "#basketball#농구";
+        String hashtagString = "#basketball#농구#배구아님";
         Set<String> hashtags = hashtagService.parseHashtagNames(hashtagString);
 
         Set<HashtagDto> hashtagDtos = hashtagService.saveHashtag(hashtags);

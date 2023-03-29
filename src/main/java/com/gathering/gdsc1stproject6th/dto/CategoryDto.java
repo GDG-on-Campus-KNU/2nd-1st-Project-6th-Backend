@@ -1,5 +1,7 @@
 package com.gathering.gdsc1stproject6th.dto;
 
+import com.gathering.gdsc1stproject6th.domain.Category;
+import com.gathering.gdsc1stproject6th.domain.Hashtag;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -22,4 +24,14 @@ public class CategoryDto {
     private LocalDateTime updateAt;
 
     private LocalDateTime deleteAt;
+
+    public static CategoryDto from(Category entity) {
+        return new CategoryDto(
+                entity.getCategoryId(),
+                entity.getCategoryNm(),
+                entity.getCreatedAt(),
+                entity.getDeleteAt(),
+                entity.getUpdateAt()
+        );
+    }
 }

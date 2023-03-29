@@ -9,6 +9,8 @@ import com.gathering.gdsc1stproject6th.repository.PostRepository;
 import com.gathering.gdsc1stproject6th.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,6 +36,10 @@ public class PostService {
         return post.getPostId();
     }
 
-
+    //카테고리별 게시글 조희
+    @Transactional(readOnly = true)
+    public Page<PostDto> searchPostsByCategory(String categoryNm, Pageable pageable){
+        return postRepository.findByCategory_CategoryNmContaining(categoryNm, pageable).map(PostDto::from);
+    }
 
 }

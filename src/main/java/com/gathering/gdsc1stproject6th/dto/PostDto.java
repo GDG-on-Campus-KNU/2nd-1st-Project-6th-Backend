@@ -9,6 +9,7 @@ import org.hibernate.annotations.ColumnDefault;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -76,5 +77,25 @@ public class PostDto {
                 .build();
 
         return post;
+    }
+
+    public static PostDto from(Post entity) {
+        return new PostDto(
+                entity.getPostId(),
+                entity.getTitle(),
+                entity.getChatLink(),
+                entity.getUserLen(),
+                entity.getCurUserLen(),
+                entity.getMeetTime(),
+                entity.getMeetPlace(),
+                entity.getContent(),
+                entity.getFastYN(),
+                entity.getActiveYN(),
+                UserDto.from(entity.getUser()),
+                CategoryDto.from(entity.getCategory()),
+                entity.getCreatedAt(),
+                entity.getDeleteAt(),
+                entity.getUpdateAt()
+        );
     }
 }
