@@ -39,4 +39,15 @@ public class UserDto {
         );
     }
 
+    public User toEntity() {
+        User user = User.builder()
+                .userId(userId)
+                .userLv(userLv)
+                .userNm(userNm)
+                .userNickname(userNickname)
+                .build();
+
+        return user;
+    }
+
 }
