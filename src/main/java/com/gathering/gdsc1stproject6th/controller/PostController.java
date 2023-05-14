@@ -17,7 +17,11 @@ public class PostController {
     @PostMapping("/save")
     @ResponseBody
     public Long savePost(@RequestBody PostDto postDto) {
-        return postService.savePost(postDto);
+
+        Long postId = postService.savePost(postDto);
+
+
+        return postId;
     }
 
 
