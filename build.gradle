@@ -12,6 +12,10 @@ repositories {
     mavenCentral()
 }
 
+jar {
+    enabled = false
+}
+
 dependencies {
     //spring default dependency
     implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -37,6 +41,4 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
-jar {
-    enabled = false
-}
+
