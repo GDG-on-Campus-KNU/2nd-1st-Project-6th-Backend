@@ -2,6 +2,7 @@ package com.gathering.gdsc1stproject6th.controller;
 
 
 import com.gathering.gdsc1stproject6th.dto.PostDto;
+import com.gathering.gdsc1stproject6th.dto.response.PostHashtagResponse;
 import com.gathering.gdsc1stproject6th.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -24,5 +25,10 @@ public class PostController {
         return postId;
     }
 
+    /*@GetMapping("/{postId}")
+    @ResponseBody
+    public PostHashtagResponse post(@PathVariable Long postId) {
 
+
+    }*/
 }
