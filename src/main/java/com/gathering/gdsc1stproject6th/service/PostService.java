@@ -16,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Slf4j
 @RequiredArgsConstructor
-@Transactional
 @Service
 public class PostService {
     private final PostRepository postRepository;
@@ -24,6 +23,7 @@ public class PostService {
     private final CategoryRepository categoryRepository;
 
     //게시글 저장
+    @Transactional
     public Long savePost(PostDto postDto) {
         User user = userRepository.getReferenceById(postDto.getUserDto().getUserId());
 
@@ -31,15 +31,9 @@ public class PostService {
 
         Post post = postDto.toEntity(user, category);
 
-        postRepository.save(post);
-
-        return post.getPostId();
+        return postRepository.save(post).getPostId();
     }
 
-    //카테고리별 게시글 조희
-    @Transactional(readOnly = true)
-    public Page<PostDto> searchPostsByCategory(String categoryNm, Pageable pageable){
-        return postRepository.findByCategory_CategoryNmContaining(categoryNm, pageable).map(PostDto::from);
-    }
+
 
 }

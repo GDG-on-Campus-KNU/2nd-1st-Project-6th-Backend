@@ -4,6 +4,10 @@ plugins {
     id 'io.spring.dependency-management' version '1.1.0'
 }
 
+jar{
+    enabled = false
+}
+
 group = 'com.gathering'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
@@ -23,7 +27,10 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
 
     //mysql
-    runtimeOnly 'com.mysql:mysql-connector-j'
+    //runtimeOnly 'com.mysql:mysql-connector-j'
+
+    //mariadb
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 
     //jpa
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -33,3 +40,5 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+
