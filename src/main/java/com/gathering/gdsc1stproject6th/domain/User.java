@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @DynamicUpdate
 @Entity
-public class User {
+public class User extends BaseEntity{
 
     // 회원번호
     @Id
@@ -33,16 +33,12 @@ public class User {
     @Column(nullable = true)
     private String userNickname;
 
-    // 생성일자
+    // 회원 이메일
     @Column(nullable = true)
-    private LocalDateTime createAt;
+    private String userEmail;
 
-    // 수정일자
+    // 회원 전화번호
     @Column(nullable = true)
-    private LocalDateTime updateAt;
-
-    // 삭제일자
-    @Column(nullable = true)
-    private LocalDateTime deleteAt;
+    private String userPhoneNumber;
 
 }
