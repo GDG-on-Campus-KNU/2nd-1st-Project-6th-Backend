@@ -25,10 +25,12 @@ public class PostController {
         return postId;
     }
 
-    /*@GetMapping("/{postId}")
-    @ResponseBody
-    public PostHashtagResponse post(@PathVariable Long postId) {
+    //post 상세 정보 보기
 
 
-    }*/
+    //post 목록 보기
+
+    //post update
+
+    //post delete
 }

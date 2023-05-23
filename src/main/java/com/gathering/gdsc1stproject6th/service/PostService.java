@@ -32,6 +32,9 @@ public class PostService {
         return postRepository.save(post).getPostId();
     }
 
+    //게시글 상세 정보 보기
+    @Transactional
+    public
 
 
 }
