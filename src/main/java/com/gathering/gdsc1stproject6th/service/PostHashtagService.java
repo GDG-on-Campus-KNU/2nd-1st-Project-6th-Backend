@@ -36,7 +36,7 @@ public class PostHashtagService {
             Optional<Hashtag> hashtag = hashtagRepository.findById(hashtagDto.getHashtagId());
 
             if(post.isPresent() && hashtag.isPresent()) {
-                //게시글과 게시글에 해당하는 해시태그가 매핑 되어 있는지 확인하기 위해 체크
+                //게시글과 게시글에 해당하는 해시태그가 이미 매핑 되어 있는지 확인하기 위해 체크
                 Optional<PostHashtag> curPresent = postHashtagRepository.findByPostIdAndHashtagId(post.get().getPostId(), hashtag.get().getHashtagId());
                 if(curPresent.isEmpty()) {
                     Post post1 = post.get();

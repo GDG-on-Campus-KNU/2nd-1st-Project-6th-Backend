@@ -25,7 +25,7 @@ public class HashtagController {
 
         Set<String> hashtags = hashtagService.parseHashtagNames(hashtagString);
 
-        Set<HashtagDto> hashtagDtos = hashtagService.saveHashtag(hashtags);
+        Set<HashtagDto> hashtagDtos = hashtagService.saveHashtag(hashtags, postId);
 
         postHashtagService.savePostHashtag(postId, hashtagDtos);
 

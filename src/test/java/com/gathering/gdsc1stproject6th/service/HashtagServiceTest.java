@@ -28,13 +28,4 @@ class HashtagServiceTest {
         //then
     }
 
-    @Test
-    void saveHashtag() {
-        //given
-
-        //when
-        hashtagService.saveHashtag(hashtags);
-
-        //then
-    }
 }

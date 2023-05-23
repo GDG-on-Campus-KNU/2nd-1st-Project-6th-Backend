@@ -37,7 +37,6 @@ class PostHashtagServiceTest {
     @Autowired
     private PostService postService;
 
-
     @Test
     void savePostHashtag() {
         Long postId = 7L;
@@ -102,12 +101,8 @@ class PostHashtagServiceTest {
         //해시태그
         String hashtagString = "#공부#sutdy#spring";
         Set<String> hashtags = hashtagService.parseHashtagNames(hashtagString);
+        Set<HashtagDto> hashtagDtos = hashtagService.saveHashtag(hashtags, postId);
 
-        Set<HashtagDto> hashtagDtos = hashtagService.saveHashtag(hashtags);
-        
-        for(HashtagDto hashtagDto : hashtagDtos) {
-            System.out.println("hashtagDto.getHashtagId() = " + hashtagDto.getHashtagId());
-        }
 
         postHashtagService.savePostHashtag(postId, hashtagDtos);
     }
