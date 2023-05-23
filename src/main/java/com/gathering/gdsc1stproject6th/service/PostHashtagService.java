@@ -49,7 +49,7 @@ public class PostHashtagService {
     }
 
 
-    //게시글 상세 조회
+    //게시글 상세 조회에 따른 해시태그 키값 찾기 찾기
     @Transactional
     public List<Long> findByPostId (Long postId) {
         return postHashtagRepository.findAllHashtagId(postId);

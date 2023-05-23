@@ -8,9 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -72,6 +70,19 @@ public class HashtagService {
         hashtag.get().addTagCount();
         System.out.println("hashtag.get().getTagCount() = " + hashtag.get().getTagCount());
         hashtagRepository.save(hashtag.get());
+    }
+
+    //조회 게시글에 해당하는 해시태그들 찾기
+    @Transactional
+    public List<HashtagDto> findByHashtagIds (List<Long> hashtagIds) {
+        List<HashtagDto> hashtagDtos = new ArrayList<>();
+
+        for(Long id : hashtagIds) {
+            HashtagDto hashtagDto = HashtagDto.from(hashtagRepository.findById(id).get());
+            hashtagDtos.add(hashtagDto);
+        }
+
+        return hashtagDtos;
     }
 
 }

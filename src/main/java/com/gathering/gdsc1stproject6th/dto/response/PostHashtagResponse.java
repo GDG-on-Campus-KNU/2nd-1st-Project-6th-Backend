@@ -58,24 +58,22 @@ public class PostHashtagResponse {
     private List<HashtagDto> hashtagDtos;
 
 
-    public PostHashtagResponse (PostDto postEntity, List<Hashtag> hashtags) {
-        this.postId = postEntity.getPostId();
-        this.title = postEntity.getTitle();
-        this.chatLink = postEntity.getChatLink();
-        this.userLen = postEntity.getUserLen();
-        this.curUserLen = postEntity.getCurUserLen();
-        this.meetTime = postEntity.getMeetTime();
-        this.meetPlace = postEntity.getMeetPlace();
-        this.content = postEntity.getContent();
-        this.fastYN = postEntity.getFastYN();
-        this.activeYN = postEntity.getActiveYN();
-        this.user = postEntity.getUserDto();
-        this.category = postEntity.getCategoryDto();
+    public PostHashtagResponse (PostDto postDto, List<HashtagDto> hashtagDtos) {
+        this.postId = postDto.getPostId();
+        this.title = postDto.getTitle();
+        this.chatLink = postDto.getChatLink();
+        this.userLen = postDto.getUserLen();
+        this.curUserLen = postDto.getCurUserLen();
+        this.meetTime = postDto.getMeetTime();
+        this.meetPlace = postDto.getMeetPlace();
+        this.content = postDto.getContent();
+        this.fastYN = postDto.getFastYN();
+        this.activeYN = postDto.getActiveYN();
+        this.user = postDto.getUserDto();
+        this.category = postDto.getCategoryDto();
 
-        this.hashtagDtos = new ArrayList<>();
-        for(Hashtag h : hashtags) {
-            this.hashtagDtos.add(new HashtagDto().from(h));
-        }
+        this.hashtagDtos =hashtagDtos;
+
     }
 
 }
