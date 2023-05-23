@@ -76,6 +76,4 @@ public class HashtagService {
         hashtagRepository.save(hashtag1.get());
     }
 
-
-
 }

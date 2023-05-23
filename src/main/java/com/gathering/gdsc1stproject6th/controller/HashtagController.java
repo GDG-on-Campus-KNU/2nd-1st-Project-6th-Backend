@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RequiredArgsConstructor
-@RequestMapping("/hashtag")
+@RequestMapping("/api/hashtag")
 @Controller
 public class HashtagController {
 
@@ -34,5 +34,6 @@ public class HashtagController {
     }
 
     //hashtag top5 목록 반환
+
 
 }
