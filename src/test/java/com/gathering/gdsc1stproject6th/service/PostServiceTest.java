@@ -9,7 +9,6 @@ import com.gathering.gdsc1stproject6th.repository.CategoryRepository;
 import com.gathering.gdsc1stproject6th.repository.PostRepository;
 import com.gathering.gdsc1stproject6th.repository.UserRepository;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -33,42 +32,37 @@ class PostServiceTest {
     void savePost() {
         //give
         User user = User.builder()
-                .userId(1L)
+                .userId(3L)
                 .userLv(1L)
-                .userNm("KIM")
-                .userNickname("dy")
+                .userNm("김대영")
+                .userNickname("kdy")
+                .userEmail("kdy@knu.ac.kr")
+                .userPhoneNumber("01012345678")
                 .build();
 
         userRepository.save(user);
 
         Category category = Category.builder()
-                .categoryId(1L)
+                .categoryId(2L)
                 .categoryNm("exercise")
                 .build();
 
         categoryRepository.save(category);
 
 
-        UserDto userDto = UserDto.builder()
-                .userId(1L)
-                .userLv(1L)
-                .userNm("KIM")
-                .userNickname("dy")
-                .build();
+        UserDto userDto = UserDto.from(user);
 
-        CategoryDto categoryDto = CategoryDto.builder()
-                .categoryId(1L)
-                .categoryNm("exercise")
-                .build();
+        CategoryDto categoryDto = CategoryDto.from(category);
 
         PostDto postDto = PostDto.builder()
-                .title("soccer collect")
+                .postId(7L)
+                .title("축구원 모집")
                 .chatLink("https://www.acmicpc.net/problem/12865")
                 .userLen(11)
                 .curUserLen(1)
                 .meetTime("5시")
                 .meetPlace("수성구")
-                .content("태그 카운터가 늘어날까")
+                .content("축구 좋아하시는분 모두 환영")
                 .fastYN(true)
                 .activeYN(true)
                 .userDto(userDto)

@@ -22,7 +22,6 @@ public class HashtagController {
     @ResponseBody
     public Long saveHashtag(@RequestBody String hashtagString, @PathVariable Long postId) {
 
-
         Set<String> hashtags = hashtagService.parseHashtagNames(hashtagString);
 
         Set<HashtagDto> hashtagDtos = hashtagService.saveHashtag(hashtags);

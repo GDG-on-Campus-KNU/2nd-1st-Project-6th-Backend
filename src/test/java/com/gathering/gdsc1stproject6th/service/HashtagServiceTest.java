@@ -7,15 +7,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class HashtagServiceTest {
 
     @Autowired
     private HashtagService hashtagService;
-
-    private HashtagRepository hashtagRepository;
 
     public static Set<String> hashtags;
 

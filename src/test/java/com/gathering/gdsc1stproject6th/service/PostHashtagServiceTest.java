@@ -45,8 +45,8 @@ class PostHashtagServiceTest {
         Long postId = 7L;
         Set<HashtagDto> hashtagDtos = new HashSet<>();
 
-        HashtagDto hashtagDto3 = HashtagDto.from(hashtagRepository.findById(3L).get());
-        HashtagDto hashtagDto4 = HashtagDto.from(hashtagRepository.findById(4L).get());
+        HashtagDto hashtagDto3 = HashtagDto.from(hashtagRepository.findById(6L).get());
+        HashtagDto hashtagDto4 = HashtagDto.from(hashtagRepository.findById(7L).get());
 
         hashtagDtos.add(hashtagDto3);
         hashtagDtos.add(hashtagDto4);
@@ -62,41 +62,36 @@ class PostHashtagServiceTest {
 
         //post
         User user = User.builder()
-                .userId(2L)
-                .userLv(2L)
-                .userNm("김대영")
-                .userNickname("kdozlo")
+                .userId(4L)
+                .userLv(1L)
+                .userNm("아무개")
+                .userNickname("amogae")
+                .userEmail("amogae@knu.ac.kr")
+                .userPhoneNumber("01098765432")
                 .build();
 
         userRepository.save(user);
 
         Category category = Category.builder()
-                .categoryId(1L)
-                .categoryNm("exercise")
+                .categoryId(3L)
+                .categoryNm("study")
                 .build();
 
         categoryRepository.save(category);
 
-        UserDto userDto = UserDto.builder()
-                .userId(2L)
-                .userLv(2L)
-                .userNm("김대영")
-                .userNickname("kdozlo")
-                .build();
+        UserDto userDto = UserDto.from(user);
 
-        CategoryDto categoryDto = CategoryDto.builder()
-                .categoryId(1L)
-                .categoryNm("exercise")
-                .build();
+        CategoryDto categoryDto = CategoryDto.from(category);
 
         PostDto postDto = PostDto.builder()
-                .title("농구할 사람!!")
+                .postId(9L)
+                .title("스프링 스터디원 모집")
                 .chatLink("https://www.acmicpc.net/11")
                 .userLen(3)
                 .curUserLen(1)
                 .meetTime("8시")
                 .meetPlace("남구")
-                .content("고고")
+                .content("자세한건 인원 모이면 정할게요")
                 .fastYN(true)
                 .activeYN(true)
                 .userDto(userDto)
@@ -107,7 +102,7 @@ class PostHashtagServiceTest {
 
 
         //해시태그
-        String hashtagString = "#basketball#농구#배구아님";
+        String hashtagString = "#공부#sutdy#spring";
         Set<String> hashtags = hashtagService.parseHashtagNames(hashtagString);
 
         Set<HashtagDto> hashtagDtos = hashtagService.saveHashtag(hashtags);
