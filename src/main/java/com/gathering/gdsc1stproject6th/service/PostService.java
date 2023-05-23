@@ -36,12 +36,12 @@ public class PostService {
 
     //게시글 상세 정보 보기
     @Transactional
-    public PostHashtagResponse findByPostId (Long postId) {
+    public PostDto findByPostId (Long postId) {
         Post postEntity = postRepository.findById(postId)
                 .orElseThrow(() -> new
                         IllegalArgumentException("해당 게시글이 없습니다. id=" + postId));
 
-        return new PostHashtagResponse(postEntity, null);
+        return PostDto.from(postEntity);
     }
 
 

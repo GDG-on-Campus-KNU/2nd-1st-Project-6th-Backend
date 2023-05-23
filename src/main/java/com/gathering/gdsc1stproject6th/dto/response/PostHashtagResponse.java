@@ -4,7 +4,10 @@ import com.gathering.gdsc1stproject6th.domain.Category;
 import com.gathering.gdsc1stproject6th.domain.Hashtag;
 import com.gathering.gdsc1stproject6th.domain.Post;
 import com.gathering.gdsc1stproject6th.domain.User;
+import com.gathering.gdsc1stproject6th.dto.CategoryDto;
 import com.gathering.gdsc1stproject6th.dto.HashtagDto;
+import com.gathering.gdsc1stproject6th.dto.PostDto;
+import com.gathering.gdsc1stproject6th.dto.UserDto;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -46,16 +49,16 @@ public class PostHashtagResponse {
     private Boolean activeYN;
 
     //글쓴이
-    private User user;
+    private UserDto user;
 
     //카테고리 번호
-    private Category category;
+    private CategoryDto category;
 
     //해시태그들
     private List<HashtagDto> hashtagDtos;
 
 
-    public PostHashtagResponse (Post postEntity, List<Hashtag> hashtags) {
+    public PostHashtagResponse (PostDto postEntity, List<Hashtag> hashtags) {
         this.postId = postEntity.getPostId();
         this.title = postEntity.getTitle();
         this.chatLink = postEntity.getChatLink();
@@ -66,8 +69,8 @@ public class PostHashtagResponse {
         this.content = postEntity.getContent();
         this.fastYN = postEntity.getFastYN();
         this.activeYN = postEntity.getActiveYN();
-        this.user = postEntity.getUser();
-        this.category = postEntity.getCategory();
+        this.user = postEntity.getUserDto();
+        this.category = postEntity.getCategoryDto();
 
         this.hashtagDtos = new ArrayList<>();
         for(Hashtag h : hashtags) {
