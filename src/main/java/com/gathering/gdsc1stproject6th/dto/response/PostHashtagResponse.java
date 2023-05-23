@@ -7,6 +7,7 @@ import com.gathering.gdsc1stproject6th.domain.User;
 import com.gathering.gdsc1stproject6th.dto.HashtagDto;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -54,7 +55,7 @@ public class PostHashtagResponse {
     private List<HashtagDto> hashtagDtos;
 
 
-    public PostHashtagResponse (Post postEntity, List<Hashtag> Hashtags) {
+    public PostHashtagResponse (Post postEntity, List<Hashtag> hashtags) {
         this.postId = postEntity.getPostId();
         this.title = postEntity.getTitle();
         this.chatLink = postEntity.getChatLink();
@@ -68,7 +69,8 @@ public class PostHashtagResponse {
         this.user = postEntity.getUser();
         this.category = postEntity.getCategory();
 
-        for(Hashtag h : Hashtags) {
+        this.hashtagDtos = new ArrayList<>();
+        for(Hashtag h : hashtags) {
             this.hashtagDtos.add(new HashtagDto().from(h));
         }
     }

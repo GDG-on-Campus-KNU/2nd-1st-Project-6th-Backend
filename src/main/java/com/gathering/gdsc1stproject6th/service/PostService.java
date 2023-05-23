@@ -1,9 +1,8 @@
 package com.gathering.gdsc1stproject6th.service;
 
-import com.gathering.gdsc1stproject6th.domain.Category;
-import com.gathering.gdsc1stproject6th.domain.Post;
-import com.gathering.gdsc1stproject6th.domain.User;
+import com.gathering.gdsc1stproject6th.domain.*;
 import com.gathering.gdsc1stproject6th.dto.PostDto;
+import com.gathering.gdsc1stproject6th.dto.response.PostHashtagResponse;
 import com.gathering.gdsc1stproject6th.repository.CategoryRepository;
 import com.gathering.gdsc1stproject6th.repository.PostRepository;
 import com.gathering.gdsc1stproject6th.repository.UserRepository;
@@ -11,6 +10,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -34,7 +36,13 @@ public class PostService {
 
     //게시글 상세 정보 보기
     @Transactional
-    public
+    public PostHashtagResponse findByPostId (Long postId) {
+        Post postEntity = postRepository.findById(postId)
+                .orElseThrow(() -> new
+                        IllegalArgumentException("해당 게시글이 없습니다. id=" + postId));
+
+        return new PostHashtagResponse(postEntity, null);
+    }
 
 
 }
