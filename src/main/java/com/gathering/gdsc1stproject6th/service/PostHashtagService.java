@@ -52,6 +52,6 @@ public class PostHashtagService {
     //게시글 상세 조회
     @Transactional
     public List<Long> findByPostId (Long postId) {
-        List<Long> hastagIds = postHashtagRepository.
+        return postHashtagRepository.findAllHashtagId(postId);
     }
 }
