@@ -36,8 +36,9 @@ public class PostController {
     @GetMapping("/{id}")
     public PostHashtagResponse findByPostId(@PathVariable Long id) {
         PostDto postDto = postService.findByPostId(id);
-        List<Long> hashtagIds = postHashtagService.findByPostId(id);
-        List<HashtagDto> hashtagDtos = hashtagService.findByHashtagIds(hashtagIds);
+        System.out.println("postDto");
+        List<HashtagDto> hashtagDtos = postHashtagService.findByPostId(id);
+        System.out.println("hashtagDtos");
 
         return new PostHashtagResponse(postDto, hashtagDtos);
     }

@@ -5,7 +5,6 @@ import com.gathering.gdsc1stproject6th.domain.Hashtag;
 import com.gathering.gdsc1stproject6th.domain.Post;
 import com.gathering.gdsc1stproject6th.domain.PostHashtag;
 import com.gathering.gdsc1stproject6th.dto.HashtagDto;
-import com.gathering.gdsc1stproject6th.dto.PostDto;
 import com.gathering.gdsc1stproject6th.repository.HashtagRepository;
 import com.gathering.gdsc1stproject6th.repository.PostHashtagRepository;
 import com.gathering.gdsc1stproject6th.repository.PostRepository;
@@ -14,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -49,9 +49,15 @@ public class PostHashtagService {
     }
 
 
-    //게시글 상세 조회에 따른 해시태그 키값 찾기 찾기
+    //조회 게시글에 해당하는 해시태그들 찾기
     @Transactional
-    public List<Long> findByPostId (Long postId) {
-        return postHashtagRepository.findAllHashtagId(postId);
+    public List<HashtagDto> findByPostId (Long postId) {
+        List<HashtagDto> hashtagDtos = new ArrayList<>();
+
+        for(PostHashtag p : postHashtagRepository.findAllHashtagId(postId)) {
+            hashtagDtos.add(HashtagDto.from(p.getHashtag()));
+        }
+
+        return hashtagDtos;
     }
 }

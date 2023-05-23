@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface PostHashtagRepository extends JpaRepository<PostHashtag, Long> {
 
-    @Query("SELECT p.hashtag_id FROM post_hashtag p WHERE p.post_id = postId")
-    List<Long> findAllHashtagId(@Param("postId") Long postId);
+    @Query("SELECT p FROM PostHashtag p WHERE p.post.postId = :post_id")
+    List<PostHashtag> findAllHashtagId(@Param("post_id") Long postId);
 }

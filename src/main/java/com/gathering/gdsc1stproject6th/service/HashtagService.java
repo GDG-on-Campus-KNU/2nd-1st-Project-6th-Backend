@@ -72,7 +72,7 @@ public class HashtagService {
         hashtagRepository.save(hashtag.get());
     }
 
-    //조회 게시글에 해당하는 해시태그들 찾기
+    /*//조회 게시글에 해당하는 해시태그들 찾기
     @Transactional
     public List<HashtagDto> findByHashtagIds (List<Long> hashtagIds) {
         List<HashtagDto> hashtagDtos = new ArrayList<>();
@@ -83,6 +83,6 @@ public class HashtagService {
         }
 
         return hashtagDtos;
-    }
+    }*/
 
 }
