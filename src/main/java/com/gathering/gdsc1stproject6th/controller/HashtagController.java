@@ -2,6 +2,7 @@ package com.gathering.gdsc1stproject6th.controller;
 
 import com.gathering.gdsc1stproject6th.dto.HashtagDto;
 import com.gathering.gdsc1stproject6th.dto.PostDto;
+import com.gathering.gdsc1stproject6th.dto.response.PostHashtagResponse;
 import com.gathering.gdsc1stproject6th.service.HashtagService;
 import com.gathering.gdsc1stproject6th.service.PostHashtagService;
 import lombok.RequiredArgsConstructor;
@@ -30,4 +31,6 @@ public class HashtagController {
 
         return postId;
     }
+
+
 }

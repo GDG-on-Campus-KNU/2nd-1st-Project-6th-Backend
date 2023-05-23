@@ -1,16 +1,11 @@
 package com.gathering.gdsc1stproject6th.dto.response;
 
-import com.gathering.gdsc1stproject6th.domain.Category;
-import com.gathering.gdsc1stproject6th.domain.Hashtag;
-import com.gathering.gdsc1stproject6th.domain.Post;
-import com.gathering.gdsc1stproject6th.domain.User;
 import com.gathering.gdsc1stproject6th.dto.CategoryDto;
 import com.gathering.gdsc1stproject6th.dto.HashtagDto;
 import com.gathering.gdsc1stproject6th.dto.PostDto;
 import com.gathering.gdsc1stproject6th.dto.UserDto;
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
