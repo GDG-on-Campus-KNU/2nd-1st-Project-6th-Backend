@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -48,7 +49,13 @@ public class PostService {
     @Transactional(readOnly = true)
     public List<PostResponse> findAllDesc() {
 
+        List<PostResponse> postResponses = new ArrayList<>();
 
+        for(Post p : postRepository.findAllDesc()) {
+            postResponses.add(new PostResponse(PostDto.from(p)));
+        }
+
+        return postResponses;
     }
 
 
