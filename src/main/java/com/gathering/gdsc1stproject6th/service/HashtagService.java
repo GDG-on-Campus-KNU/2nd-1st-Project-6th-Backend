@@ -7,7 +7,6 @@ import com.gathering.gdsc1stproject6th.repository.HashtagRepository;
 import com.gathering.gdsc1stproject6th.repository.PostHashtagRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -61,11 +60,8 @@ public class HashtagService {
                 Optional<PostHashtag> curPresent = postHashtagRepository.findByPostIdAndHashtagId(postId, hashtag1.get().getHashtagId());
                 if(curPresent.isEmpty()) {
                     //tagCount 1증가 update
-                    hashtag1.get().addTagCount();
-                    hashtagRepository.save(hashtag1.get());
+                    addHashtagTagCount(hashtag1);
                 }
-
-
                 newHashtagDto = HashtagDto.from(hashtag1.get());
             }
             hashtagDtos.add(newHashtagDto);
@@ -74,26 +70,12 @@ public class HashtagService {
         return Set.copyOf(hashtagDtos);
     }
 
-    /*//해시태그 존재하는 경우, tagCount +1 업데이트
-    public void updateHashtagTagCount(String hashtagNm) {
-        Optional<Hashtag> hashtag = hashtagRepository.findByHashtagNm(hashtagNm);
+    //해시태그 존재하는 경우, tagCount +1 업데이트
+    private void addHashtagTagCount(Optional<Hashtag> hashtag1) {
+        hashtag1.get().addTagCount();
+        hashtagRepository.save(hashtag1.get());
+    }
 
-        hashtag.get().addTagCount();
-        System.out.println("hashtag.get().getTagCount() = " + hashtag.get().getTagCount());
-        hashtagRepository.save(hashtag.get());
-    }*/
 
-    /*//조회 게시글에 해당하는 해시태그들 찾기
-    @Transactional
-    public List<HashtagDto> findByHashtagIds (List<Long> hashtagIds) {
-        List<HashtagDto> hashtagDtos = new ArrayList<>();
-
-        for(Long id : hashtagIds) {
-            HashtagDto hashtagDto = HashtagDto.from(hashtagRepository.findById(id).get());
-            hashtagDtos.add(hashtagDto);
-        }
-
-        return hashtagDtos;
-    }*/
 
 }

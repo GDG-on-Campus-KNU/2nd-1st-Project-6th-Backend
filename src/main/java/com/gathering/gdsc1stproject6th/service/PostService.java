@@ -2,7 +2,6 @@ package com.gathering.gdsc1stproject6th.service;
 
 import com.gathering.gdsc1stproject6th.domain.*;
 import com.gathering.gdsc1stproject6th.dto.PostDto;
-import com.gathering.gdsc1stproject6th.dto.response.PostHashtagResponse;
 import com.gathering.gdsc1stproject6th.repository.CategoryRepository;
 import com.gathering.gdsc1stproject6th.repository.PostRepository;
 import com.gathering.gdsc1stproject6th.repository.UserRepository;
@@ -11,8 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -42,6 +41,14 @@ public class PostService {
                         IllegalArgumentException("해당 게시글이 없습니다. id=" + postId));
 
         return PostDto.from(postEntity);
+    }
+
+    //post 전체 목록 보기
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findAllDesc() {
+        return postsRepository.findAllDesc().stream()
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
     }
 
 

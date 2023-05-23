@@ -19,6 +19,7 @@ public class HashtagController {
     private final HashtagService hashtagService;
     private final PostHashtagService postHashtagService;
 
+    //hashtag, postHashtag 저장
     @PostMapping("/save/{postId}")
     @ResponseBody
     public Long saveHashtag(@RequestBody String hashtagString, @PathVariable Long postId) {
@@ -32,5 +33,6 @@ public class HashtagController {
         return postId;
     }
 
+    //hashtag top5 목록 반환
 
 }
