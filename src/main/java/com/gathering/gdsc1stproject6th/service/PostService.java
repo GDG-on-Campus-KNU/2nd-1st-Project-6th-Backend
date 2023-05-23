@@ -2,6 +2,7 @@ package com.gathering.gdsc1stproject6th.service;
 
 import com.gathering.gdsc1stproject6th.domain.*;
 import com.gathering.gdsc1stproject6th.dto.PostDto;
+import com.gathering.gdsc1stproject6th.dto.response.PostResponse;
 import com.gathering.gdsc1stproject6th.repository.CategoryRepository;
 import com.gathering.gdsc1stproject6th.repository.PostRepository;
 import com.gathering.gdsc1stproject6th.repository.UserRepository;
@@ -45,10 +46,9 @@ public class PostService {
 
     //post 전체 목록 보기
     @Transactional(readOnly = true)
-    public List<PostsListResponseDto> findAllDesc() {
-        return postsRepository.findAllDesc().stream()
-                .map(PostsListResponseDto::new)
-                .collect(Collectors.toList());
+    public List<PostResponse> findAllDesc() {
+
+
     }
 
 
