@@ -36,14 +36,18 @@ public class PostHashtagService {
             Optional<Hashtag> hashtag = hashtagRepository.findById(hashtagDto.getHashtagId());
 
             if(post.isPresent() && hashtag.isPresent()) {
-                Post post1 = post.get();
-                Hashtag hashtag1 =hashtag.get();
-                PostHashtag postHashtag = PostHashtag.builder()
-                        .post(post1)
-                        .hashtag(hashtag1)
-                        .build();
+                //게시글과 게시글에 해당하는 해시태그가 매핑 되어 있는지 확인하기 위해 체크
+                Optional<PostHashtag> curPresent = postHashtagRepository.findByPostIdAndHashtagId(post.get().getPostId(), hashtag.get().getHashtagId());
+                if(curPresent.isEmpty()) {
+                    Post post1 = post.get();
+                    Hashtag hashtag1 =hashtag.get();
+                    PostHashtag postHashtag = PostHashtag.builder()
+                            .post(post1)
+                            .hashtag(hashtag1)
+                            .build();
 
-                postHashtagRepository.save(postHashtag);
+                    postHashtagRepository.save(postHashtag);
+                }
             }
         }
     }
